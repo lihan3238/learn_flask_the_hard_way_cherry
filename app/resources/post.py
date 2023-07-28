@@ -1,4 +1,4 @@
-from flask import request, current_app
+from flask import request, current_app,redirect
 from flask_login import current_user
 from flask_restful import Resource, reqparse
 
@@ -95,4 +95,5 @@ class PostList(Resource):
         db.session.add(post)
         db.session.commit()
 
-        return {"msg": "post created", "post": schema.dump(post)}, 201
+        #return {"msg": "post created", "post": schema.dump(post)}, 201
+        return redirect("http://127.0.0.1:5000/")

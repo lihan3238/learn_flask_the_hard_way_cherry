@@ -6,7 +6,7 @@ from flask_migrate import Migrate
 from flask_marshmallow import Marshmallow
 
 
-db = SQLAlchemy(use_native_unicode="UTF-8")
+db = SQLAlchemy()
 login_manager = LoginManager()
 bcrypt = Bcrypt()
 migrate = Migrate()
