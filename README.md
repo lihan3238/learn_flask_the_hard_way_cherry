@@ -1,20 +1,22 @@
-# Learn Flask The Hard Way
+# InstaCUC
 
-一步一步学flask教程。
+实现一个图片站点。
 
-## 安装依赖
+运行方式：
 
 ```bash
-# 如果没有安装过 pipenv，请执行以下一条命令完成 pipenv 安装
-pip install pipenv
+# 初始化数据库
+flask db init
 
-# 安装开发环境所需所有依赖
-pipenv install
+# 生成迁移文件
+flask db migrate
 
-# 如果在后续代码执行过程中遇到版本兼容性相关错误，可以使用以下命令安装本仓库调试验证过的所有依赖库精确依赖版本
-pipenv install --ignore-pipfile
+# 迁移数据库，即创建database以及各个表
+flask db upgrade
 
-# 进入“纯净”开发环境
-pipenv shell
+# 创建管理员账号
+flask user create-admin <username@email.com> <username> <password>
+
+# 运行站点
+flask run
 ```
-
