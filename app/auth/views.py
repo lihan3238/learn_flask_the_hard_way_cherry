@@ -37,4 +37,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return 'Logged out successfully!'
+    #return 'Logged out successfully!'
+    return "<script>alert('Logged out successfully!');setTimeout(function(){window.location.href='http://127.0.0.1:5000/';}, 500);</script>"
+
+
