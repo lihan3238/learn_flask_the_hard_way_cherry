@@ -20,7 +20,8 @@ def load_user(userid):
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     form = SignInForm()
-    if form.validate_on_submit():
+    #if form.validate_on_submit():
+    if form.validate() and form.is_submitted():
         user = User.query.filter_by(email=form.email.data).first_or_404()
         if user.is_correct_password(form.password.data):
             login_user(user)
@@ -28,7 +29,8 @@ def login():
             next = request.args.get('next')
             return redirect(next or url_for('home.index'))
         else:
-            return redirect(url_for('auth.login'))
+            #return redirect(url_for('auth.login'))
+            return "<script>alert('Logged in failed!');setTimeout(function(){window.location.href='http://127.0.0.1:5000/';}, 500);</script>"
 
     return render_template('auth/login.html', form=form)
 
